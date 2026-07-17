@@ -361,7 +361,7 @@ const quizData = [
   },
   {
     "category": "Jharkhand General Knowledge",
-    "question": "झारखंड का सबसे बड़ा जिला कौन सा है?",
+    "question": "झारखंड का सबसे बड़ा जिला कौन सा है? (जनसंख्या)",
     "options": ["रांची", "धनबाद", "सिंहभूम", "गढ़वा"],
     "correct": 0
   },
