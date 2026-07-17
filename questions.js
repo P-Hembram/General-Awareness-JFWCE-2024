@@ -55,7 +55,7 @@ const quizData = [
   },
   {
     "category": "Current Affairs (सामयिक विषय)",
-    "question": "2026 में Cricket World Cup कहाँ आयोजित होगा?",
+    "question": " 2026 Men's T20 Cricket World Cup 2026 कहाँ आयोजित होगा?",
     "options": ["भारत & श्रीलंका", "इंग्लैंड", "दक्षिण अफ्रीका", "श्रीलंका"],
     "correct": 0
   },
@@ -230,7 +230,7 @@ const quizData = [
   {
     "category": "Indian Polity",
     "question": "\"राज्यपाल\" की नियुक्ति कौन करता है?",
-    "options": ["प्रधानमंत्री", "राष्ट्रपति", "मुख्यमंत्री", "s संसद"],
+    "options": ["प्रधानमंत्री", "राष्ट्रपति", "मुख्यमंत्री", "संसद"],
     "correct": 1
   },
   {
@@ -533,33 +533,23 @@ const quizData = [
     "options": ["गुजरात", "महाराष्ट्र", "तमिलनाडु", "कर्नाटक"],
     "correct": 0
   },
+ 
   {
     "category": "General Awareness Current Affairs & Awards",
-    "question": "2024 में पद्म विभूषण किसे मिला?",
-    "options": [ "अजीम प्रेमजी", "मल्लिका साराभाई","रतन टाटा", "सचिन तेंदुलकर"],
-    "correct": 2
-  },
-  {
-    "category": "General Awareness Current Affairs & Awards",
-    "question": "2025 में ICC Women's World Cup कहाँ आयोजित हुआ?",
+    "question": "2026 में ICC T20 Women's World Cup कहाँ आयोजित हुआ?",
     "options": ["भारत", "इंग्लैंड", "ऑस्ट्रेलिया", "न्यूज़ीलैंड"],
     "correct": 1
   },
   {
     "category": "General Awareness Current Affairs & Awards",
-    "question": "2026 में UNESCO World Heritage Site में भारत का कौन सा स्थल नया जोड़ा गया?",
+    "question": "2023 में UNESCO World Heritage Site में भारत का कौन सा स्थल नया जोड़ा गया?",
     "options": ["काकतीय मंदिर", "होयसल मंदिर", "कोणार्क सूर्य मंदिर", "अजंता गुफाएँ"],
     "correct": 1
   },
+ 
   {
     "category": "General Awareness Current Affairs & Awards",
-    "question": "2024 में Booker Prize किस भारतीय लेखक को मिला?",
-    "options": [ "गीता मेहता", "जस्टिन नारायण", "जया गोकुल","अरुंधति रॉय"],
-    "correct": 3
-  },
-  {
-    "category": "General Awareness Current Affairs & Awards",
-    "question": "2025 में Asian Games कहाँ हुए?",
+    "question": "2014 में Asian Games कहाँ हुए?",
     "options": ["चीन", "जापान", "दक्षिण कोरिया", "भारत"],
     "correct": 2
   },
@@ -1063,7 +1053,7 @@ const quizData = [
   },
   {
     "category": "Basic Mathematics - Problem Solving",
-    "question": "यदि 12 mudoor 24 दिन में काम पूरा करते हैं, तो 6 मजदूर वही काम कितने दिन में करेंगे?",
+    "question": "यदि 12 मजदूर 24 दिन में काम पूरा करते हैं, तो 6 मजदूर वही काम कितने दिन में करेंगे?",
     "options": [ "36", "30", "40","48",],
     "correct": 3
   },
