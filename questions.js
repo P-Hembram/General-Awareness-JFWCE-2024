@@ -9,7 +9,7 @@ const quizData = [
     "category": "Current Affairs (सामयिक विषय)",
     "question": "2024 Paris Olympics में भारत ने कितने पदक जीते?",
     "options": ["3", "6", "7", "9"],
-    "correct": 2
+    "correct": 1
   },
   {
     "category": "Current Affairs (सामयिक विषय)",
