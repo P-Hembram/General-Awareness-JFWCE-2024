@@ -67,7 +67,7 @@
         .quiz-container {
             width: 100%;
             max-width: 650px;
-            margin-top: 80px; /* हैडर के लिए जगह */
+            margin-top: 25px; /* हैडर के लिए जगह */
             margin-bottom: 50px;
             display: flex;
             flex-direction: column;
@@ -193,10 +193,42 @@
             margin: 20px 0;
             padding: 10px;
         }
+
+        /* डिलीट बटन के लिए नया स्टाइल (मौजूदा CSS से मिलता जुलता) */
+        .clear-btn-container {
+            margin: 20px 0 4px 0;
+            text-align: center;
+            width: 100%;
+            max-width: 650px;
+        }
+
+        .clear-storage-btn {
+            background-color: var(--error-color);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-size: 16px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.2s, transform 0.2s;
+        }
+
+        .clear-storage-btn:hover {
+            background-color: #c0392b;
+            transform: scale(1.02);
+        }
+        .top-cls{
+            margin-top: 30px;
+            margin-bottom: -40px;
+        }
     </style>
 </head>
 <body>
-
+<div class="clear-btn-container">
+    <button class=" top-cls clear-storage-btn" id="clear-storage-btn">क्विज़ डेटा रीसेट करें</button>
+</div>
 <div class="sticky-header">
     <h1 id="header-title">General Awareness क्विज़</h1>
     <div class="score-box" id="score-display">स्कोर: 0 / 0</div>
@@ -206,17 +238,26 @@
 
 <div class="loading-spinner" id="loading-spinner">नीचे स्क्रॉल करें और नए सवाल पाएँ...</div>
 
+<!-- सबसे नीचे डेटा डिलीट करने का बटन -->
+<div class="clear-btn-container">
+    <button class="clear-storage-btn" id="clear-storage-btn">क्विज़ डेटा रीसेट करें</button>
+</div>
+
 <script src="questions.js"></script>
 
 <script>
     let loadedCount = 0;       // अब तक कितने सवाल लोड हुए
-    const batchSize = 10;      // एक बार में कितने सवाल लोड करने हैं
+    const batchSize = 50;      // एक बार में कितने सवाल लोड करने हैं
     let score = 0;             // सही उत्तरों का स्कोर
     let attemptedCount = 0;    // कुल कितने सवालों का उत्तर यूजर ने दे दिया है
+    
+    // लोकल स्टोरेज से पुराने उत्तरों को लोड करना
+    let savedAnswers = JSON.parse(localStorage.getItem("quizAnswers")) || {};
 
     const quizContainer = document.getElementById("quiz-container");
     const scoreDisplay = document.getElementById("score-display");
     const loadingSpinner = document.getElementById("loading-spinner");
+    const clearStorageBtn = document.getElementById("clear-storage-btn");
 
     // प्रश्न को स्क्रीन पर रेंडर (क्रिएट) करने का फंक्शन
     function createQuestionCard(qData, globalIndex) {
@@ -255,7 +296,7 @@
             
             // क्लिक होने पर उत्तर चेक करें
             button.onclick = () => {
-                handleOptionSelect(button, optionIndex, qData.correct, optionsList, feedback);
+                handleOptionSelect(button, optionIndex, qData.correct, optionsList, feedback, globalIndex);
             };
 
             optionsList.appendChild(button);
@@ -264,10 +305,33 @@
         card.appendChild(optionsList);
         card.appendChild(feedback);
         quizContainer.appendChild(card);
+
+        // अगर इस सवाल का जवाब पहले से दिया जा चुका है तो उसे रिस्टोर करें
+        if (savedAnswers[globalIndex] !== undefined) {
+            const savedSelectedIdx = savedAnswers[globalIndex];
+            const buttons = optionsList.getElementsByClassName("option-btn");
+            
+            // बटन लॉक करें
+            for (let btn of buttons) {
+                btn.disabled = true;
+            }
+
+            if (savedSelectedIdx === qData.correct) {
+                buttons[savedSelectedIdx].classList.add("correct");
+                feedback.innerText = "बिल्कुल सही जवाब! 🎉";
+                feedback.className = "feedback-msg feedback-correct";
+            } else {
+                buttons[savedSelectedIdx].classList.add("wrong");
+                buttons[qData.correct].classList.add("correct");
+                feedback.innerText = `गलत जवाब! सही उत्तर था: ${buttons[qData.correct].innerText}`;
+                feedback.className = "feedback-msg feedback-wrong";
+            }
+            feedback.style.display = "block";
+        }
     }
 
     // विकल्प चुनने की प्रक्रिया
-    function handleOptionSelect(selectedButton, selectedIdx, correctIdx, optionsList, feedbackElement) {
+    function handleOptionSelect(selectedButton, selectedIdx, correctIdx, optionsList, feedbackElement, globalIndex) {
         const buttons = optionsList.getElementsByClassName("option-btn");
         
         // एक बार उत्तर देने के बाद उसी सवाल के दूसरे बटन लॉक कर दें
@@ -292,6 +356,13 @@
         }
 
         feedbackElement.style.display = "block";
+        
+        // लोकल स्टोरेज में सेव करें
+        savedAnswers[globalIndex] = selectedIdx;
+        localStorage.setItem("quizAnswers", JSON.stringify(savedAnswers));
+        localStorage.setItem("quizScore", score);
+        localStorage.setItem("quizAttempted", attemptedCount);
+
         updateScoreBoard();
     }
 
@@ -328,8 +399,23 @@
         }
     });
 
+    // लोकल स्टोरेज क्लियर (डेटा डिलीट) करने का फंक्शन
+    clearStorageBtn.addEventListener("click", () => {
+        if(confirm("क्या आप अपना सारा क्विज़ डेटा और स्कोर डिलीट करना चाहते हैं?")) {
+            localStorage.removeItem("quizAnswers");
+            localStorage.removeItem("quizScore");
+            localStorage.removeItem("quizAttempted");
+            location.reload(); // पेज रिफ्रेश करके शुरुआत से लोड करें
+        }
+    });
+
     // शुरुआत में पहली बैच (प्रथम 10 प्रश्न) लोड करें
     document.addEventListener("DOMContentLoaded", () => {
+        // लोकल स्टोरेज से पुराना स्कोर रीस्टोर करें
+        score = parseInt(localStorage.getItem("quizScore")) || 0;
+        attemptedCount = parseInt(localStorage.getItem("quizAttempted")) || 0;
+        updateScoreBoard();
+
         if (typeof quizData !== 'undefined' && quizData.length > 0) {
             loadMoreQuestions();
         } else {

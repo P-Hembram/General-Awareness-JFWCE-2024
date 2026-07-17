@@ -8,7 +8,7 @@ const quizData = [
   {
     "category": "Current Affairs (सामयिक विषय)",
     "question": "2024 Paris Olympics में भारत ने कितने पदक जीते?",
-    "options": ["3", "5", "7", "9"],
+    "options": ["3", "6", "7", "9"],
     "correct": 2
   },
   {
@@ -39,7 +39,7 @@ const quizData = [
     "category": "Current Affairs (सामयिक विषय)",
     "question": "2024 में G20 Summit कहाँ आयोजित हुआ?",
     "options": [ "रोम", "नई दिल्ली","ब्राज़ील", "टोक्यो"],
-    "correct": 1
+    "correct": 2
   },
   {
     "category": "Current Affairs (सामयिक विषय)",
@@ -49,15 +49,15 @@ const quizData = [
   },
   {
     "category": "Current Affairs (सामयिक विषय)",
-    "question": "2024 में Nobel Peace Prize किसे मिला?",
+    "question": "2023 में Nobel Peace Prize किसे मिला?",
     "options": [ "मारिया रेसा", "अबी अहमद", "मलाला यूसुफजई","नरगिस मोहम्मदी"],
     "correct": 3
   },
   {
     "category": "Current Affairs (सामयिक विषय)",
     "question": "2026 में Cricket World Cup कहाँ आयोजित होगा?",
-    "options": ["भारत", "इंग्लैंड", "दक्षिण अफ्रीका", "श्रीलंका"],
-    "correct": 2
+    "options": ["भारत & श्रीलंका", "इंग्लैंड", "दक्षिण अफ्रीका", "श्रीलंका"],
+    "correct": 0
   },
   {
     "category": "Indian History",
@@ -213,7 +213,7 @@ const quizData = [
     "category": "Indian Polity",
     "question": "\"न्यायपालिका की स्वतंत्रता\" किस अनुच्छेद में निहित है?",
     "options": [ "अनुच्छेद 32", "अनुच्छेद 21","अनुच्छेद 50", "अनुच्छेद 14"],
-    "correct": 3
+    "correct": 2
   },
   {
     "category": "Indian Polity",
@@ -309,7 +309,7 @@ const quizData = [
     "category": "General Science",
     "question": "\"ओजोन परत\" किसे रोकती है?",
     "options": [ "अवरक्त किरणें", "रेडियो तरंगें","पराबैंगनी किरणें", "ध्वनि तरंगें"],
-    "correct": 3
+    "correct": 2
   },
   {
     "category": "General Science",
@@ -477,7 +477,7 @@ const quizData = [
     "category": "Basic Mathematics",
     "question": "यदि ₹1000 पर 2 वर्ष के लिए 10% वार्षिक दर से साधारण ब्याज लगाया जाए, तो ब्याज कितना होगा?",
     "options": [ "₹200", "₹300", "₹250","₹100"],
-    "correct": 3
+    "correct": 0
   },
   {
     "category": "Basic Mathematics",
@@ -609,7 +609,7 @@ const quizData = [
     "category": "Indian History - Freedom Struggle & Modern India",
     "question": "\"साइमन कमीशन\" का विरोध किस नारे से किया गया?",
     "options": [ "Quit India", "Vande Mataram", "Inquilab Zindabad","Simon Go Back",],
-    "correct": 0
+    "correct": 3
   },
   {
     "category": "Indian History - Freedom Struggle & Modern India",
@@ -831,7 +831,7 @@ const quizData = [
     "category": "Jharkhand GK - Culture & Contribution",
     "question": "\"झारखंड का राजकीय फूल\" कौन सा है?",
     "options": [ "गुलाब", "पलाश","कमल", "सूरजमुखी"],
-    "correct": 0
+    "correct": 1
   },
   {
     "category": "Jharkhand GK - Culture & Contribution",
@@ -1022,12 +1022,12 @@ const quizData = [
   {
     "category": "General Science - Technology & Space",
     "question": "\"हिग्स बोसॉन\" को किस नाम से जाना जाता है?",
-    "options": [, "न्यूट्रॉन", "इलेक्ट्रॉन","गॉड पार्टिकल", "क्वार्क"],
+    "options": ["न्यूट्रॉन", "इलेक्ट्रॉन","गॉड पार्टिकल", "क्वार्क"],
     "correct": 2
   },
   {
     "category": "General Science - Technology & Space",
-    "question": "\"क्वांटम डॉट्स\" किस क्षेत्र में उपयोग होते हैं?",
+    "question": "\"क्वांटम डॉट्स\" किस क्षेत्र में सबसे जायदा उपयोग होते हैं?",
     "options": [ "कृषि","डिस्प्ले तकनीक", "चिकित्सा", "ऊर्जा"],
     "correct": 1
   },
