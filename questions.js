@@ -561,7 +561,7 @@ const quizData = [
   },
   {
     "category": "General Awareness Current Affairs & Awards",
-    "question": "2024 में Miss World का खिताब किसने जीता?",
+    "question": "2022 में Miss World का खिताब किसने जीता?",
     "options": ["सनी शेट्टी","करोलिना बिएलावस्का",  "वनेसा पोंस", "मानुषी छिल्लर"],
     "correct": 0
   },
